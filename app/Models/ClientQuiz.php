@@ -5,31 +5,30 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-use App\Enums\ActiveStatus as ActiveStatusEnum;
-use App\Enums\QuizType as QuizTypeEnum;
-
 use Kyslik\ColumnSortable\Sortable;
 
 
-class Quiz extends Model
+class ClientQuiz extends Model
 {
     use HasFactory;
     use Sortable;
 
 
     protected $fillable = [
-        'title',
-        'status',
-        'type',
-        'duration',
+        'quiz_id',
+        'first_name',
+        'last_name',
+        'name',
+        'email',
+        'time_spent',
+        'total_score',
         'num_questions',
+        'answered_questions',
+        'unanswered_questions',
         'questions',
     ];
 
     protected $casts = [
-        'status' => ActiveStatusEnum::class,
-        'type' => QuizTypeEnum::class,
-        'questions' => 'array',
         'created_at'  => 'date:Y-m-d H:i',
         'updated_at'  => 'date:Y-m-d H:i',
     ];
@@ -37,20 +36,22 @@ class Quiz extends Model
 
     public $sortable = [
         'id',
-        'title',
-        'status',
-        'type',
-        'duration',
-        'num_questions',
+        'quiz_id',
+        'name',
+        'email',
+        'time_spent',
+        'total_score',
+        'num_question',
+        'answered_questions',
+        'unanswered_questions',
         'created_at',
         'updated_at',
         ];
 
 
-    public function clientQuizes()
+    public function quiz()
     {
-        return $this->hasMany(ClientQuiz::class);
+        return $this->belongsTo(Quiz::class);
     }
-
 
 }

@@ -1,5 +1,4 @@
 <script setup>
-import { Head, Link } from '@inertiajs/vue3';
 import GuestLayout from '@/Layouts/GuestLayout.vue';
 
 defineProps({
@@ -13,9 +12,9 @@ defineProps({
 
             <v-row justify="center">
                 <v-col cols="12" lg="6">
-                    <v-alert color="primary">
-                        <v-alert-title>Welcome to {{ $page.props.appName }}!</v-alert-title>
-                        Welcome text
+                    <v-alert color="primary" class="text-center">
+                        <h1 class="text-center">Welcome to {{ $page.props.appName }}!</h1>
+                        <v-btn color="success" :to="route('quizzes.index')" class="mt-4" >Check out our Quizzes!</v-btn>
                     </v-alert>
                 </v-col>
             </v-row>

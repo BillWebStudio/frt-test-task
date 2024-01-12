@@ -6,6 +6,7 @@ use Inertia\Inertia;
 
 use App\Http\Controllers\Admin\DashboardsController as AdminDashboardsController;
 use App\Http\Controllers\Admin\QuizzesController as AdminQuizzesController;
+use App\Http\Controllers\QuizzesController as FrontQuizzesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,9 +23,11 @@ Route::get('/', function () {
     return Inertia::render('Front/Pages/home');
 })->name('home');
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/quizzes', [FrontQuizzesController::class, 'index'])->name('quizzes.index');
+Route::get('/do-quiz/{id}', [FrontQuizzesController::class, 'doQuiz'])->name('quizzes.do');
+Route::post('/do-quiz/{id}', [FrontQuizzesController::class, 'store'])->name('quizzes.store');
+Route::get('/quiz-stats/{id}', [FrontQuizzesController::class, 'stats'])->name('quizzes.stats');
+
 
 Route::middleware('auth')->prefix('admin')->as('admin.')->group(function () {
 

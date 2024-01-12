@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use Inertia\Inertia;
-use App\Models\Client;
+use App\Models\ClientQuiz;
 use App\Models\CalendarItem;
 use App\Models\Accounting;
 
