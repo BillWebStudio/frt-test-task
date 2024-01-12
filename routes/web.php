@@ -1,11 +1,11 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 use App\Http\Controllers\Admin\DashboardsController as AdminDashboardsController;
+use App\Http\Controllers\Admin\QuizzesController as AdminQuizzesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +29,9 @@ Route::get('/dashboard', function () {
 Route::middleware('auth')->prefix('admin')->as('admin.')->group(function () {
 
     Route::get('/', [AdminDashboardsController::class, 'index'])->name('dashboard');
+
+    Route::resource('quizzes', AdminQuizzesController::class)->parameters(['quiz' => 'id']);
+
 });
 
 require __DIR__.'/auth.php';

@@ -11,11 +11,11 @@ const props = defineProps({
 const showMainMenu = ref(null);
 
 function menuListGroupCurrent(){
-    if (route().current('admin.quizes.*'))
-        return 'quizes';
+    if (route().current('admin.quizzes.*'))
+        return 'quizzes';
 
-    if (route().current('admin.clients-quizes.*'))
-        return 'clients-quizes';
+    if (route().current('admin.clients-quizzes.*'))
+        return 'clients-quizzes';
 
     return null
 }
@@ -49,12 +49,13 @@ const menuListGroupOpen = ref([menuListGroupCurrent()]);
             <v-list density="compact" nav v-model:opened="menuListGroupOpen">
 
                 <v-list-item :to="route('admin.dashboard')" prepend-icon="mdi-view-dashboard" :active="route().current('admin.dashboard')" title="Dashboard" value="dashboard"></v-list-item>
-<!--
-                <v-list-item :to="route('admin.quizes')" prepend-icon="mdi-question" :active="route().current('admin.quizes.*')" title="Quizes" value="quizes"></v-list-item>
 
-                <v-list-item :to="route('admin.clients-quizes')" prepend-icon="mdi-exit" :active="route().current('admin.clients-quizes.*')" title="Clients Quizes" value="clients-quizes"></v-list-item>
--->
+                <v-list-item :to="route('admin.quizzes.index')" prepend-icon="mdi-help-circle-outline" :active="route().current('admin.quizzes.*')" title="Quizzes" value="quizzes"></v-list-item>
+                <!--
+                                <v-list-item :to="route('admin.clients-quizzes.index')" prepend-icon="mdi-exit" :active="route().current('admin.clients-quizzes.*')" title="Clients Quizzes" value="clients-quizes"></v-list-item>
+                -->
                 <v-list-item :to="route('logout')" prepend-icon="mdi-logout" title="Log out" value="logout"></v-list-item>
+
             </v-list>
         </v-navigation-drawer>
 

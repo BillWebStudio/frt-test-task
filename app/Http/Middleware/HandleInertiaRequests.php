@@ -6,8 +6,15 @@ use Illuminate\Http\Request;
 use Inertia\Middleware;
 use Tightenco\Ziggy\Ziggy;
 
+use App\Enums\QuizType as QuizTypeEnum;
+use App\Enums\ActiveStatus as ActiveStatusEnum;
+use App\Traits\ObjectToSelectOptions;
+
+
 class HandleInertiaRequests extends Middleware
 {
+    use ObjectToSelectOptions;
+
     /**
      * The root template that is loaded on the first page visit.
      *
@@ -34,6 +41,18 @@ class HandleInertiaRequests extends Middleware
             'auth' => [
                 'user' => $request->user(),
             ],
+
+            'appName' => config('app.name', ''),
+            'notification' => session()->get('notification'),
+            'enums' => [
+                'activeStatuses' => ActiveStatusEnum::array(),
+                'quizTypes' => QuizTypeEnum::array(),
+            ],
+            'selectOptions' => [
+                'activeStatuses' => $this->objectFoSelectOptions(ActiveStatusEnum::array()),
+                'quizTypes' => $this->objectFoSelectOptions(QuizTypeEnum::array()),
+            ],
+
             'ziggy' => function () use ($request) {
                 return array_merge((new Ziggy)->toArray(), [
                     'location' => $request->url(),

@@ -10,6 +10,7 @@ const props = defineProps({
 });
 
 function frmDefaults() {
+    console.log(props);
     let options = {};
     for (let item of props.searchInputs){
         let val = page.props[item.name] || '';

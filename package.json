@@ -16,6 +16,7 @@
         "sass": "^1.69.5"
     },
     "dependencies": {
-        "vuetify": "^3.3.23"
+        "vuetify": "^3.3.23",
+        "material-components-web": "^14.0.0"
     }
 }
