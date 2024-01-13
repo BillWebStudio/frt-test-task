@@ -76,4 +76,23 @@ class QuizzesController extends Controller
        // return redirect()->route('quizzes.index')->with('notification', config('app-notifications')['record.saved']);
     }
 
+
+    public function stats(string $id)
+    {
+        $quiz = Quiz::findOrFail($id);
+
+        $query = ClientQuiz::where('quiz_id', '=', $id)
+            ->sortable(['total_score' => 'desc', 'time_spent' => 'desc', 'created_at' => 'asc']);
+        $query = $this->_searchParams($query);
+
+        $stats = $query->paginate(20);
+
+        $search = request()->all();
+
+        return Inertia::render('Front/Quizzes/Stats', [
+            'quiz' => $quiz,
+            'stats' => $stats,
+        ]);
+    }
+
 }

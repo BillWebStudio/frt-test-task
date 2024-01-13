@@ -3,7 +3,6 @@ import {computed} from "vue";
 import { Link, usePage } from '@inertiajs/vue3';
 import GuestLayout from '@/Layouts/GuestLayout.vue';
 import AdminSearch from "@/Components/Admin/AdminSearch.vue";
-import moment from "moment";
 
 const page = usePage()
 
@@ -45,10 +44,6 @@ function ct(seconds) {
 
 <template>
     <GuestLayout :title="pageTitle" >
-
-        <template v-slot:titleButtons>
-            <v-btn size="large" variant="outlined" :to="route('admin.quizzes.create')" title="Add new"><v-icon icon="mdi-plus"></v-icon>Add new</v-btn>
-        </template>
 
         <div>
             <admin-search :form-url="route('quizzes.index')" :search-inputs="searchInputs"></admin-search>
