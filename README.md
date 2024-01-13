@@ -15,8 +15,9 @@ a correct answer to the asked questions.
 - PHP 8.x
 - MySQL
 - Laravel 9.x
+- Inertia.js
 - Vue.js 3
-- Vuetifyjs framework
+- Vuetify.js framework
 
 # Installation
 
