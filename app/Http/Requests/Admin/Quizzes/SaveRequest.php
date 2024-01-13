@@ -25,7 +25,6 @@ class SaveRequest extends FormRequest
             'type' => [new Enum(QuizTypeEnum::class)],
             'title' => 'required|min:3|max:100',
             'duration' => 'required|numeric|min:30',
-            'client_name' => 'nullable|max:100',
             'num_questions' => 'nullable',
             'questions' => 'required|min:1',
         ];

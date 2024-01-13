@@ -3,6 +3,7 @@ import {computed} from "vue";
 import { Link, usePage } from '@inertiajs/vue3';
 import GuestLayout from '@/Layouts/GuestLayout.vue';
 import AdminSearch from "@/Components/Admin/AdminSearch.vue";
+import moment from "moment";
 
 const page = usePage()
 
@@ -36,6 +37,10 @@ const items = computed(() => {
 });
 
 
+function ct(seconds) {
+    return converTime(seconds);
+}
+
 </script>
 
 <template>
@@ -52,7 +57,7 @@ const items = computed(() => {
                 <v-col cols="4" v-for="item in items.data" :key="item.id" class="border">
                     <h3 class="mb-3">{{ item.title }}</h3>
                     <div class="mb-3"># Questions: {{ item.num_questions }} </div>
-                    <div class="mb-3">Duration: {{ item.duration }} s</div>
+                    <div class="mb-3">Duration: {{ ct(item.duration) }} </div>
 
                     <div class="ga-2 d-flex">
                         <v-btn color="success" :to="route('quizzes.do', [ item.id ] )" title="View">Start the Quiz</v-btn>

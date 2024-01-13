@@ -52,6 +52,10 @@ const items = computed(() => {
 });
 
 
+function ct(seconds) {
+    return converTime(seconds);
+}
+
 </script>
 
 <template>
@@ -87,7 +91,7 @@ const items = computed(() => {
                             <td><Link :href="route('admin.quizzes.edit', [ item.id ] )" title="Edit">{{ item.id }}</Link></td>
                             <td>{{ $page.props.enums.quizTypes[item.type] }}</td>
                             <td><Link :href="route('admin.quizzes.show', [ item.id ] )" title="View">{{ item.title }}</Link></td>
-                            <td>{{ item.duration }} s</td>
+                            <td>{{ ct(item.duration) }}</td>
                             <td>{{ item.num_questions }} </td>
                             <td>{{ $page.props.enums.activeStatuses[item.status] }}</td>
                             <td>{{ item.created_at }}</td>

@@ -26,31 +26,31 @@ const pageTitle = computed(() => {
                         <h2 class="mb-5">General Info</h2>
 
                         <v-row class="row">
-                            <v-col calls="12" sm="3"><strong>Title:</strong></v-col>
-                            <v-col calls="12" sm="9">{{ quiz.title }}</v-col>
+                            <v-col cols="12" sm="3"><strong>Title:</strong></v-col>
+                            <v-col cols="12" sm="9">{{ quiz.title }}</v-col>
                         </v-row>
 
                         <v-row class="row">
-                            <v-col calls="12" sm="3"><strong>Type:</strong></v-col>
-                            <v-col calls="12" sm="9">{{ $page.props.enums.quizTypes[quiz.type] }}</v-col>
+                            <v-col cols="12" sm="3"><strong>Type:</strong></v-col>
+                            <v-col cols="12" sm="9">{{ $page.props.enums.quizTypes[quiz.type] }}</v-col>
                         </v-row>
 
                         <v-row class="row">
-                            <v-col calls="12" sm="3"><strong>Status:</strong></v-col>
-                            <v-col calls="12" sm="9">{{ $page.props.enums.activeStatuses[quiz.status] }}</v-col>
+                            <v-col cols="12" sm="3"><strong>Status:</strong></v-col>
+                            <v-col cols="12" sm="9">{{ $page.props.enums.activeStatuses[quiz.status] }}</v-col>
                         </v-row>
 
                         <v-row class="row">
-                            <v-col calls="12" sm="3"><strong>Duration:</strong></v-col>
-                            <v-col calls="12" sm="9">{{ quiz.duration }} s</v-col>
+                            <v-col cols="12" sm="3"><strong>Duration:</strong></v-col>
+                            <v-col cols="12" sm="9">{{ quiz.duration }} s</v-col>
                         </v-row>
                         <v-row class="row">
-                            <v-col calls="12" sm="3"><strong># Questions:</strong></v-col>
-                            <v-col calls="12" sm="9">{{ quiz.num_questions }}</v-col>
+                            <v-col cols="12" sm="3"><strong># Questions:</strong></v-col>
+                            <v-col cols="12" sm="9">{{ quiz.num_questions }}</v-col>
                         </v-row>
                         <v-row class="row">
-                            <v-col calls="12" sm="3"><strong>Created:</strong></v-col>
-                            <v-col calls="12" sm="9">{{ quiz.created_at }}</v-col>
+                            <v-col cols="12" sm="3"><strong>Created:</strong></v-col>
+                            <v-col cols="12" sm="9">{{ quiz.created_at }}</v-col>
                         </v-row>
                     </v-col>
 

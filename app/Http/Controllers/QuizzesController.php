@@ -7,8 +7,10 @@ use Illuminate\Http\Request;
 
 use Inertia\Inertia;
 use App\Models\Quiz;
+use App\Models\ClientQuiz;
 use App\Enums\QuizType as QuizTypeEnum;
 use App\Enums\ActiveStatus as ActiveStatusEnum;
+use App\Http\Requests\Front\Quizzes\ClientQuizRequest;
 
 
 class QuizzesController extends Controller
@@ -51,19 +53,27 @@ class QuizzesController extends Controller
     public function doQuiz(string $id)
     {
         $quiz = Quiz::findOrFail($id);
-        return Inertia::render('Admin/Quizzes/Show', compact('quiz'));
+
+        return Inertia::render('Front/Quizzes/DoQuiz', compact('quiz'));
     }
 
 
-    public function store(QuizzesSaveRequest $request, string $id)
+    public function store(ClientQuizRequest $request, string $id)
     {
         $quiz = Quiz::findOrFail($id);
-
         $data = $request->validated();
-        $data['num_questions'] = count($data['questions']);
-        $quiz = Quiz::create($data);
 
-        return redirect()->route('quizzes.index')->with('notification', config('app-notifications')['record.saved']);
+        if (@$request->step == "personalInfo"){
+            return redirect()->route('quizzes.do', $id);
+        }
+
+        $data['name'] = trim($data['first_name'] . ' ' . $data['last_name']);
+        $data['ip_address'] = request()->ip();
+
+        $clientQuiz = ClientQuiz::create($data);
+
+        return redirect()->route('quizzes.do', $id);
+       // return redirect()->route('quizzes.index')->with('notification', config('app-notifications')['record.saved']);
     }
 
 }

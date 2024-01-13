@@ -11,12 +11,13 @@
         "autoprefixer": "^10.4.12",
         "axios": "^1.1.2",
         "laravel-vite-plugin": "^0.8.0",
+        "sass": "^1.69.5",
         "vite": "^4.0.0",
-        "vue": "^3.2.41",
-        "sass": "^1.69.5"
+        "vue": "^3.2.41"
     },
     "dependencies": {
-        "vuetify": "^3.3.23",
-        "material-components-web": "^14.0.0"
+        "material-components-web": "^14.0.0",
+        "moment": "^2.30.1",
+        "vuetify": "^3.3.23"
     }
 }

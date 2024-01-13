@@ -15,7 +15,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('client_quizes', function (Blueprint $table) {
+        Schema::create('client_quizzes', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->foreignIdFor(Quiz::class)->nullable()->index()->constrained();
@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('first_name', 40);
             $table->string('last_name', 40);
             $table->string('email')->nullable();
+            $table->ipAddress()->nullable()->index();
             $table->integer('time_spent')->nullable();
             $table->float('total_score')->nullable();
             $table->integer('num_questions')->nullable();
@@ -41,6 +42,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('client_quizes');
+        Schema::dropIfExists('client_quizzes');
     }
 };

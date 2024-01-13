@@ -20,6 +20,7 @@ class ClientQuiz extends Model
         'last_name',
         'name',
         'email',
+        'ip_address',
         'time_spent',
         'total_score',
         'num_questions',
@@ -29,6 +30,7 @@ class ClientQuiz extends Model
     ];
 
     protected $casts = [
+        'questions' => 'array',
         'created_at'  => 'date:Y-m-d H:i',
         'updated_at'  => 'date:Y-m-d H:i',
     ];
@@ -39,6 +41,7 @@ class ClientQuiz extends Model
         'quiz_id',
         'name',
         'email',
+        'ip_address',
         'time_spent',
         'total_score',
         'num_question',
