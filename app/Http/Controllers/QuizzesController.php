@@ -82,12 +82,11 @@ class QuizzesController extends Controller
         $quiz = Quiz::findOrFail($id);
 
         $query = ClientQuiz::where('quiz_id', '=', $id)
-            ->sortable(['total_score' => 'desc', 'time_spent' => 'desc', 'created_at' => 'asc']);
-        $query = $this->_searchParams($query);
+            ->orderBy('total_score', 'desc')
+            ->orderBy('time_spent', 'asc')
+            ->orderBy('created_at', 'asc');
 
         $stats = $query->paginate(20);
-
-        $search = request()->all();
 
         return Inertia::render('Front/Quizzes/Stats', [
             'quiz' => $quiz,

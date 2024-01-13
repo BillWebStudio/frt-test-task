@@ -51,9 +51,9 @@ const menuListGroupOpen = ref([menuListGroupCurrent()]);
                 <v-list-item :to="route('admin.dashboard')" prepend-icon="mdi-view-dashboard" :active="route().current('admin.dashboard')" title="Dashboard" value="dashboard"></v-list-item>
 
                 <v-list-item :to="route('admin.quizzes.index')" prepend-icon="mdi-help-circle-outline" :active="route().current('admin.quizzes.*')" title="Quizzes" value="quizzes"></v-list-item>
-                <!--
-                                <v-list-item :to="route('admin.clients-quizzes.index')" prepend-icon="mdi-exit" :active="route().current('admin.clients-quizzes.*')" title="Clients Quizzes" value="clients-quizes"></v-list-item>
-                -->
+
+                <v-list-item :to="route('admin.clients-quizzes.index')" prepend-icon="mdi-account-group" :active="route().current('admin.clients-quizzes.*')" title="Clients Quizzes" value="clients-quizzes"></v-list-item>
+
                 <v-list-item :to="route('logout')" prepend-icon="mdi-logout" title="Log out" value="logout"></v-list-item>
 
             </v-list>
@@ -79,7 +79,7 @@ const menuListGroupOpen = ref([menuListGroupCurrent()]);
         </v-main>
 
         <v-footer class="d-flex justify-center">
-            &copy; BillWebStudio 2023
+            &copy; BillWebStudio 2024
         </v-footer>
     </v-app>
 </template>

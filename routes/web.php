@@ -6,6 +6,7 @@ use Inertia\Inertia;
 
 use App\Http\Controllers\Admin\DashboardsController as AdminDashboardsController;
 use App\Http\Controllers\Admin\QuizzesController as AdminQuizzesController;
+use App\Http\Controllers\Admin\ClientsQuizzesController as AdminClientsQuizzesController;
 use App\Http\Controllers\QuizzesController as FrontQuizzesController;
 
 /*
@@ -32,6 +33,9 @@ Route::get('/quiz-stats/{id}', [FrontQuizzesController::class, 'stats'])->name('
 Route::middleware('auth')->prefix('admin')->as('admin.')->group(function () {
 
     Route::get('/', [AdminDashboardsController::class, 'index'])->name('dashboard');
+
+    Route::get('/clients-quizzes', [AdminClientsQuizzesController::class, 'index'])->name('clients-quizzes.index');
+    Route::get('/clients-quizzes/{id}', [AdminClientsQuizzesController::class, 'clientDetails'])->name('clients-quizzes.details');
 
     Route::resource('quizzes', AdminQuizzesController::class)->parameters(['quiz' => 'id']);
 

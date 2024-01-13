@@ -19,6 +19,7 @@ function frmDefaults() {
             switch(item.name)
             {
                 case "status":
+                case "quiz_id":
                 {
                     val = parseInt(val);
                     break;

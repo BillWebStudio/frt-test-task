@@ -37,7 +37,7 @@ class QuizzesController extends Controller
 
         if (!empty($search['s']))
         {
-            $query->where('name', 'LIKE', "%{$search['s']}%");
+            $query->where('title', 'LIKE', "%{$search['s']}%");
         }
 
         if (isset($search['status']))
